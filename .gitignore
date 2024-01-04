@@ -1,4 +1,37 @@
 *.iml
+.idea/
+misc.xml
+deploymentTargetDropDown.xml
+render.experimental.xml
+
+# Keystore files
+*.jks
+*.keystore
+
+# Google Services (e.g. APIs or Firebase)
+google-services.json
+
+# Android Profiling
+*.hprof
+# Eclipse project files
+.classpath
+.project
+
+# Windows thumbnail db
+.DS_Store
+
+# IDEA/Android Studio project files, because
+# the project can be imported from settings.gradle.kts.kts
+*.iml
+.idea/*
+!.idea/copyright
+# Keep the code styles.
+!/.idea/codeStyles
+/.idea/codeStyles/*
+!/.idea/codeStyles/Project.xml
+!/.idea/codeStyles/codeStyleConfig.xml
+
+# Gradle cache
 .gradle
 /local.properties
 /.idea/caches
@@ -13,3 +46,4 @@
 .externalNativeBuild
 .cxx
 local.properties
+/.idea/compiler.xml
