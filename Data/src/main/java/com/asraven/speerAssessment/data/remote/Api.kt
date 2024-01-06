@@ -1,4 +1,14 @@
 package com.asraven.speerAssessment.data.remote
 
-interface Api {
+import com.asraven.speerAssessment.data.remote.model.GithubSearchResult
+import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
+
+interface GithubApi {
+    @GET(Endpoints.USER_SEARCH_URL)
+    suspend fun fetchGithubSearchResult(
+        @Query("userName") userName: String
+    ): GithubSearchResult
+
 }
