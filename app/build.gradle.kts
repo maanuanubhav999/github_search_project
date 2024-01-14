@@ -1,8 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-//    alias(libs.plugins.hilt)
-
+    alias(libs.plugins.hilt)
+    kotlin("kapt")
 }
 
 android {
@@ -70,8 +70,17 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-    implementation(libs.hilt.android.v244)
+    implementation(libs.hilt.android)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose)
 
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }
