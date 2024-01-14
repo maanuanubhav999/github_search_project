@@ -19,6 +19,7 @@ kotlin190 = "1.9.0"
 appcompat = "1.6.1"
 material = "1.11.0"
 retrofit = "2.9.0"
+okhttp = "4.12.0"
 
 
 [libraries]
@@ -32,6 +33,7 @@ androidx-material3 = { module = "androidx.compose.material3:material3", version.
 androidx-material3-window-size = { module = "androidx.compose.material3:material3-window-size-class", version.ref = "material3" }
 junit = { module = "junit:junit", version.ref = "junit" }
 androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "androidxCoreSplashscreen" }
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 androidx-foundation-layout-android = { group = "androidx.compose.foundation", name = "foundation-layout-android", version.ref = "foundationLayoutAndroid" }
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
