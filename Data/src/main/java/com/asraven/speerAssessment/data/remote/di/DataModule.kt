@@ -1,6 +1,7 @@
 package com.asraven.speerAssessment.data.remote.di
 
 import android.content.Context
+import com.asraven.speerAssessment.data.remote.GithubApi
 import com.asraven.speerAssessment.data.remote.Hosts
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -50,5 +51,13 @@ object DataModule {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(client)
             .build()
+    }
+
+    @Provides
+    @Singleton
+    fun providesGithubApiService(
+        @Named("GithubApi") retrofit: Retrofit,
+    ): GithubApi {
+        return retrofit.create(GithubApi::class.java)
     }
 }
