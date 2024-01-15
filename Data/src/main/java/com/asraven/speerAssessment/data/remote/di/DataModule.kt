@@ -12,6 +12,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Named
@@ -25,24 +26,36 @@ object DataModule {
         .setLenient()
         .create()
 
+    @Provides
+    @Singleton
+    fun providesLoggingInterceptor() = HttpLoggingInterceptor().apply {
+        setLevel(HttpLoggingInterceptor.Level.BODY)
+    }
+
 
     @Provides
     @Singleton
     @Named("GithubApi")
     fun providesGithubApiRetrofit(
+        loggingInterceptor: HttpLoggingInterceptor,
 
         @ApplicationContext context: Context,
     ): Retrofit = buildRetrofit(
         Hosts.GITHUB,
-        context
-    )
+        context,
+        loggingInterceptor
+
+        )
 
 
     private fun buildRetrofit(
         baseUrl: String,
         @ApplicationContext context: Context,
-    ): Retrofit {
+        loggingInterceptor: HttpLoggingInterceptor,
+        ): Retrofit {
+
         val client = OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
             .followRedirects(false)
             .build()
 
