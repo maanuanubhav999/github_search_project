@@ -26,7 +26,7 @@ class MainViewModel @Inject constructor(
     //create ui state
     private val _mainUi = MutableStateFlow(
         MainUIState(
-            loading = true
+            loading = false
         )
     )
 
@@ -46,9 +46,11 @@ class MainViewModel @Inject constructor(
 
     fun searchUser(userName: String){
         viewModelScope.launch(coroutineExceptionHandler) {
+            _mainUi.update { it.copy(loading = true) }
             val data = searchRepository.getSearchResults(userName)
             _mainUi.update {
                 it.copy(
+                    loading = false,
                     data = data
                 )
             }
