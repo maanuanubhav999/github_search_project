@@ -8,7 +8,7 @@ import retrofit2.http.Query
 interface GithubApi {
     @GET(Endpoints.USER_SEARCH_URL)
     suspend fun fetchGithubSearchResult(
-        @Query("userName") userName: String
+        @Query("q") userName: String
     ): GithubSearchResult
 
 }
