@@ -2,6 +2,7 @@ package com.asraven.speerassessment.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -39,8 +40,8 @@ fun SearchScreen(
 
 
     Column(
-        modifier = Modifier,
-        verticalArrangement = Arrangement.Center,
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
@@ -68,6 +69,9 @@ fun SearchScreen(
         } else {
             uiState.data?.items?.let {
                 LazyColumn(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 12.dp),
                     state = lazyListState,
 
                     ) {
