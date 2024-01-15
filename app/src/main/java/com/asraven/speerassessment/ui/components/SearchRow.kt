@@ -1,8 +1,10 @@
 package com.asraven.speerassessment.ui.components
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
@@ -19,7 +21,10 @@ import coil.compose.AsyncImage
 @Composable
 fun SearchRow(userName: String, userImage: String, userInfo: String){
     Row(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(4.dp)
+            .border(1.dp, color = MaterialTheme.colorScheme.onSurface, RoundedCornerShape(4.dp))
     ) {
         appAsyncImage(logo = userImage)
 
@@ -27,7 +32,6 @@ fun SearchRow(userName: String, userImage: String, userInfo: String){
             userName
         )
         Spacer(Modifier.weight(1f))
-        Text(text = userInfo)
 
     }
 
